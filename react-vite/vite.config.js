@@ -1,10 +1,13 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react-swc';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
   server: {
-    allowedHosts: ['.diploi.me'],
-  },
-});
+    host: true,              // listen on 0.0.0.0 (needed in remote envs)
+    port: 5173,
+    allowedHosts: true       // allow Diploi dev host
+    // or: allowedHosts: ['dev-my-dev-react-vite-cfi4.code.diploi.me']
+  }
+})
