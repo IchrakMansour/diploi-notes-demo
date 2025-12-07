@@ -1,0 +1,22 @@
+# This file is used to build the infrastructure for a deployment.
+# After editing something here, apply the changes on the Diploi dashboard.
+# For more information, see https://diploi.com/yaml
+
+diploiVersion: v1.0
+components:
+  - name: React + Vite
+    identifier: react-vite
+    package: https://github.com/diploi/component-react-vite#v19.1.1
+    env:
+      include:
+        - postgres.*
+  - name: Node.js
+    identifier: node
+    package: https://github.com/diploi/component-nodejs#v24
+    env:
+      include:
+        - postgres.*
+addons:
+  - name: PostgreSQL
+    identifier: postgres
+    package: https://github.com/diploi/addon-postgres#v17.2
